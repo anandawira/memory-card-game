@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from './component/Header';
+import Main from './component/Main';
 import './style/app.css';
 
 export default function App() {
@@ -8,8 +9,8 @@ export default function App() {
 
   return (
     <div>
-      <Header score={score} bestScore={bestScore}></Header>
-      <main></main>
+      <Header score={score} bestScore={bestScore} />
+      <Main />
     </div>
   );
 }
