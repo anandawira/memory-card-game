@@ -1,13 +1,10 @@
 import React from 'react';
 import '../style/card.css';
 
-export default function Card() {
+export default function Card(props) {
   return (
     <div className="card">
-      <img
-        src="https://i.pinimg.com/originals/ac/4c/b9/ac4cb9537e3a736e2effaef2ce75ac15.jpg"
-        alt="shih tzu"
-      />
+      <img src={props.imageUrl} alt="shih tzu" />
     </div>
   );
 }
