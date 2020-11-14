@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+#gameOver {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#gameOver h2 {
+  font-size: 8rem;
+  font-family: 'Montserrat', sans-serif;
+  color: red;
+}
+
+#gameOver p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 5rem;
+}

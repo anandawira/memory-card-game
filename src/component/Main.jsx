@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import Card from './Card';
 import '../style/main.css';
 import ImageArray from '../asset/imageIndex';
+import GameOver from './GameOver';
 
 const cloneDeep = require('lodash.clonedeep');
 
 export default function Main(props) {
   const [images, setImages] = useState(cloneDeep(ImageArray));
+  const [isGameOver, setIsGameOver] = useState(false);
 
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -15,11 +17,18 @@ export default function Main(props) {
     }
   }
 
+  function gameOver() {
+    setIsGameOver(true);
+    setTimeout(() => {
+      setIsGameOver(false);
+      props.resetScore();
+    }, 3000);
+  }
+
   function handleClick(clicked, index) {
     console.log(clicked);
     if (clicked) {
-      console.log('Game Over');
-      props.resetScore();
+      gameOver();
       const newImageArray = cloneDeep(ImageArray);
       shuffle(newImageArray);
       setImages(newImageArray);
@@ -32,15 +41,18 @@ export default function Main(props) {
     }
   }
 
+  const cardsDom = images.map((imageObj, index) => (
+    <Card
+      imageUrl={imageObj.image}
+      key={index}
+      onClick={() => handleClick(imageObj.clicked, index)}
+    />
+  ));
+
   return (
     <main>
-      {images.map((imageObj, index) => (
-        <Card
-          imageUrl={imageObj.image}
-          key={index}
-          onClick={() => handleClick(imageObj.clicked, index)}
-        />
-      ))}
+      {isGameOver ? <GameOver score={props.score} /> : cardsDom}
+      {/* <GameOver /> */}
     </main>
   );
 }

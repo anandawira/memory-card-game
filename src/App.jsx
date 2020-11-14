@@ -22,7 +22,11 @@ export default function App() {
   return (
     <div>
       <Header score={score} bestScore={bestScore} />
-      <Main incrementScore={incrementScore} resetScore={resetScore} />
+      <Main
+        incrementScore={incrementScore}
+        resetScore={resetScore}
+        score={score}
+      />
     </div>
   );
 }
