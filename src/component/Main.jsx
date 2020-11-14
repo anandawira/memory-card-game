@@ -26,7 +26,6 @@ export default function Main(props) {
   }
 
   function handleClick(clicked, index) {
-    console.log(clicked);
     if (clicked) {
       gameOver();
       const newImageArray = cloneDeep(ImageArray);

@@ -12,7 +12,6 @@ export default function App() {
     if (score + 1 > bestScore) {
       setBestScore(score + 1);
     }
-    console.log(score, bestScore);
   }
 
   function resetScore() {
